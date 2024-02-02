@@ -1,10 +1,13 @@
 #include <stdio.h>
 
 int main() {
-    int a, b, c, max;
-    printf("Input three numbers: ");
+    int a, b, c, largest;
+    printf("Input three numbers of your choice: ");
     scanf("%d %d %d", &a, &b, &c);
-    max = (a > b) ? ((a > c) ? a : c) : ((b > c) ? b : c);
-    printf("Max number is %d\n", max);
+
+
+    largest = (a > b) ? ((a > c) ? a : c) : ((b > c) ? b : c);
+    printf("Largest number is %d\n", largest);
+    
     return 0;
 }
