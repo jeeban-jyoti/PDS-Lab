@@ -5,11 +5,10 @@ int main() {
     printf("Enter a number: ");
     scanf("%d", &num);
 
-    if((num & 1) && (num <= 200 && num >= 100)){
+    if((num % 2 == 1) && (num <= 200 && num >= 100))
         printf("True\n");
-    }
-    else{
+    else
         printf("False\n");
-    }
+
     return 0;
 }
