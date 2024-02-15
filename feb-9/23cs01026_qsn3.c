@@ -23,8 +23,13 @@ int main(){
         while(j < 4){
             while(k < 4){
                 while(l < 4){
-                    printf("%d%d%d%d\n", arr[i], arr[j], arr[k], arr[l]);
-                    l++;
+                    if(i != j && i != k && i != l && j != k && j != l && k != l){
+                        printf("%d%d%d%d\n", arr[i], arr[j], arr[k], arr[l]);
+                        l++;
+                    }
+                    else{
+                        l++;
+                    }
                 }
                 k++;
                 l = 0;
