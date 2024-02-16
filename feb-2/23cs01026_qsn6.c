@@ -8,6 +8,7 @@ int main() {
     scanf("%d %d", &num1, &num2);
     printf("Enter operation (+, -, *, /): ");
     scanf(" %c", &operation);
+    long mul;
 
     switch(operation){
         case '+':
@@ -17,7 +18,8 @@ int main() {
             printf("%d - %d = %d\n", num1, num2, num1 - num2);
             break;
         case '*':
-            printf("%d * %d = %d\n", num1, num2, num1 * num2);
+            mul = num1 * 1LL * num2;
+            printf("%d * %d = %ld\n", num1, num2, mul);
             break;
         case '/':
             if (num2 != 0) {

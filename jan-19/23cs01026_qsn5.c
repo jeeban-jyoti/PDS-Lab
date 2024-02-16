@@ -13,3 +13,8 @@ int main() {
     }
     return 0;
 }
+/*5 6
+5 = 101
+6 = 110
+
+bitwise and = 100 = 4*/

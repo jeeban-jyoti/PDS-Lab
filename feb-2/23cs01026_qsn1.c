@@ -5,14 +5,11 @@ int main() {
     printf("Enter an integer: ");
     scanf("%d", &num);
 
-    switch(num % 2){
+    switch((num%2+2)%2){
         case 0:
             printf("%d is an even number.\n", num);
             break;
         case 1:
-            printf("%d is an odd number.\n", num);
-            break;
-        case -1:
             printf("%d is an odd number.\n", num);
             break;
         default:
@@ -21,3 +18,5 @@ int main() {
 
     return 0;
 }
+
+//(num%mod+mod)%mod
