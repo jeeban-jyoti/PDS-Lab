@@ -1,27 +1,37 @@
 #include <stdio.h>
-#include <curl/curl.h>
+#include <stdlib.h>
+#include <string.h>
 
-int main(){
+int main() {
+    FILE *fp;
+    char output[100];
+    char input[100];
 
-    CURL *curl;
-    CURLcode response;
+    // Prompt the user to enter a string
+    printf("Enter a string: ");
+    fgets(input, sizeof(input), stdin);
 
-    curl_global_init(CURL_GLOBAL_ALL);
-    
-    curl = curl_easy_init();
-    if(curl){
-        curl_easy_setopt(curl, CURLOPT_URL, "http://0.0.0.0:8000/test");
-        response = curl_easy_perform(curl);
+    // Remove newline character from the input
+    input[strcspn(input, "\n")] = '\0';
 
-        if(response != CURLE_OK){
-            fprintf(stderr, "Request failed: %s\n", curl_easy_strerror(response));
-        }else{
-            char *d = response;
-            //printf("\n");
-            printf("%c\n", d);
-        }
-        curl_easy_cleanup(curl);
+    // Construct the command to execute the Python script with the input argument
+    char command[200];
+    sprintf(command, "python3 test.py \"%s\"", input);
+
+    // Open a pipe to execute the command and read its output
+    fp = popen(command, "r");
+    if (fp == NULL) {
+        fprintf(stderr, "Failed to open pipe.\n");
+        return 1;
     }
-    curl_global_cleanup();
+
+    // Read the output of the Python script
+    while (fgets(output, sizeof(output), fp) != NULL) {
+        printf("%s", output);
+    }
+
+    // Close the pipe
+    pclose(fp);
+
     return 0;
 }
