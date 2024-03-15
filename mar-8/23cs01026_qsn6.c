@@ -14,7 +14,6 @@ int main(){
     while(i < n){
         if(text[i] == sub_text[0]){
             while(j < m){
-                printf("%c -- %c\n", text[j], sub_text[j]);
                 if(text[i + j] != sub_text[j])
                     break;
                 j++;
