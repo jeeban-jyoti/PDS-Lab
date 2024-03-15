@@ -8,7 +8,13 @@ void checkGreaterThanAverage(int arr[], int n){
     }
 
     avg /= n;
-    printf("%f", avg);
+
+    printf("Elements that are greater than average are: ");
+    for(int i = 0; i < n; i++){
+        if(arr[i] > avg)
+            printf("%d, ", arr[i]);
+    }
+    printf("\n");
 }
 
 int main(){
